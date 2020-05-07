@@ -1,2 +1,2 @@
 # Rant
-A social mental health app
+A social app
