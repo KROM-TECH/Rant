@@ -91,13 +91,28 @@ if (navigator.mediaDevices.getUserMedia) {
         evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode);
       }
 
-      uploadButton.onclick = (e) => {
-        // storageRef.child('Rants/' + ja).put(blob).then(function (snapshot) {
-        //   console.log('Uploaded a blob or file!');
-        // });
-        // console.log(blob)
-        // alert(`Save sends this ${blob.size}-bit audio blob to server`)
-      }
+      uploadbtn.addEventListener('click', function () {
+
+        const uploadbtn = document.getElementById('uploadbtn')
+        const title = document.getElementById('title').value
+        const desc = document.getElementById('desc').value
+        var d = new Date();
+        let date = d.getDate() + ' ,' + d.getMonth() + ' ,' + d.getFullYear()
+
+        var rantName = title;
+        var rantRef = db.collection("Rants").doc(rantName);
+        rantRef.set({
+          title: title,
+          desc: desc,
+          time: date
+        }).then(function () {
+          storageRef.child('Rants/' + title).put(blob).on('state_changed', function (snapshot){
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            // console.log('Upload is ' + progress + '% done');
+            document.getElementById("status").innerHTML = Math.floor(progress) + '%';
+            })
+              })
+      })
     }
 
     mediaRecorder.ondataavailable = function (e) {

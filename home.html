@@ -102,12 +102,8 @@
   <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-storage.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-firestore.js"></script>
-
-  <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
   <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
-
-  <script>
+    <script>
     // Your web app's Firebase configuration
     var firebaseConfig = {
       apiKey: "AIzaSyB-OvFkkSEtwi8aHmReiNLQCK7aO4F6mo4",
@@ -122,13 +118,22 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
-    firebase.storage();
+    // Get a reference to the storage service, which is used to create references in your storage bucket
+      var storage = firebase.storage();
+      // Create a storage reference from our storage service
+      var storageRef = storage.ref();
+    // Get a reference to the cloud database service, which is used to create references in your database
+      var db = firebase.firestore();
+
+
+
   </script>
 
 
   <!--JavaScript at end of body for optimized loading-->
-  <script src="./js/db.js"></script>
-  <script src="./js/audio.js"></script>
+    <script src="./js/audio.js"></script>
+  <script src="./js/display.js"></script>
+
  
 
   <script type="text/javascript" src="js/materialize.min.js"></script>
