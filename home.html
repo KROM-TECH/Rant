@@ -71,9 +71,6 @@
       <button class="btr waves-effect waves-light btn" id="pause"><i class="material-icons left">pause</i>pause</button>
       <br>
       <button class="btr waves-effect waves-light btn" id="stop"><i class="material-icons left">stop</i>stop</button>
-      <br>
-      <a class="btr waves-effect waves-light btn" id="upload"><i class="material-icons left">cloud_upload</i>upload</a>
-
 
     </div>
 
@@ -91,7 +88,6 @@
     const record = document.querySelector('#record');
     const pause = document.querySelector('#pause');
     const stop = document.querySelector('#stop');
-    const upload = document.querySelector('#upload');
     const soundClips = document.querySelector('#sound-clips');
     const canvas = document.querySelector('#visualizer');
     const mainSection = document.querySelector('#main-controls');
@@ -172,7 +168,7 @@
           soundClips.appendChild(clipContainer);
 
           audio.controls = true;
-          let blob = new Blob(chunks, { 'type': 'audio/ogg; codecs=opus' });
+          let blob = new Blob(chunks, { 'type': 'audio/mpeg; codecs=opus' });
           chunks = [];
           let audioURL = window.URL.createObjectURL(blob);
           audio.src = audioURL;
