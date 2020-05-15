@@ -6,17 +6,38 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
   <link type="text/css" rel="stylesheet" href="style/materialize.min.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="style/basic.css" media="screen,projection" />
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v7.0&appId=581371026066973&autoLogAppEvents=1"></script>
 
 
 </head>
 
 <body class="indigo lighten-5">
+  <div class="back">
+    <h4 class=" text center-align white-text"> <span>Hey!!!</span> <br> Welcome To Rant <br><span style="font-size: 1rem;">Beta Version</span></h4>
+  </div>
 
+  <div class=" header container center-align">
+    <h5> <u> Feel free to listen to me Rants </u></h5>
+  </div>
   <ul class="collapsible">
-     
+
   </ul>
+
+  <div id="commentmodal" class="modal">
+    <div class="modal-content">
+      <p>Sorry, Comment feature not added yet <br>Am busy at the moment but i promise to add sometime official later
+      </p>
+    </div>
+    <div class="modal-footer">
+      <span id="status"></span>
+      <button id="uploadbtn" class="waves-effect waves-green btn-flat modal-close">Ok</button>
+    </div>
+  </div>
 
 
   <!-- firebase Configuration settings -->
@@ -24,38 +45,41 @@
   <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-storage.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-firestore.js"></script>
-  
+
   <!-- TODO: Add SDKs for Firebase products that you want to use
        https://firebase.google.com/docs/web/setup#available-libraries -->
   <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
-  
-    <script>
-      // Your web app's Firebase configuration
-      var firebaseConfig = {
-        apiKey: "AIzaSyB-OvFkkSEtwi8aHmReiNLQCK7aO4F6mo4",
-        authDomain: "rant-5f651.firebaseapp.com",
-        databaseURL: "https://rant-5f651.firebaseio.com",
-        projectId: "rant-5f651",
-        storageBucket: "rant-5f651.appspot.com",
-        messagingSenderId: "795727941451",
-        appId: "1:795727941451:web:b5e9788a104aee2e0322ce",
-        measurementId: "G-395WWZ39R2"
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
-      // Get a reference to the storage service, which is used to create references in your storage bucket
-      var storage = firebase.storage();
-      // Create a storage reference from our storage service
-      var storageRef = storage.ref();
-      // Get a reference to the cloud database service, which is used to create references in your database
-      var db = firebase.firestore();
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyB-OvFkkSEtwi8aHmReiNLQCK7aO4F6mo4",
+      authDomain: "rant-5f651.firebaseapp.com",
+      databaseURL: "https://rant-5f651.firebaseio.com",
+      projectId: "rant-5f651",
+      storageBucket: "rant-5f651.appspot.com",
+      messagingSenderId: "795727941451",
+      appId: "1:795727941451:web:b5e9788a104aee2e0322ce",
+      measurementId: "G-395WWZ39R2"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    // Get a reference to the storage service, which is used to create references in your storage bucket
+    var storage = firebase.storage();
+    // Create a storage reference from our storage service
+    var storageRef = storage.ref();
+    // Get a reference to the cloud database service, which is used to create references in your database
+    var db = firebase.firestore();
 
 
 
-    </script>
+  </script>
 
   <!--JavaScript at end of body for optimized loading-->
+  <script>
+    const remove = document.querySelector('.clearfix')
+  </script>
   <script src="./js/display.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
   <script>
